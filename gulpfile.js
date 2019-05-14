@@ -56,6 +56,11 @@ const config = {
 		]
 	},
 
+	dist: [
+		'./dist/*', './dist/',
+		'./style.css', './style.css.map', './style.min.css'
+	],
+
 	// Opciones de Proyecto.
 	project: {
 		url: 'http://localhost/projects/escuelacocina.wp/',   // URL del proyecto local de su sitio de WordPress que ya se está ejecutando. Podría ser algo como wpgulp.local o localhost: 3000 dependiendo de la configuración de WordPress local.
@@ -300,6 +305,26 @@ gulp .task( 'remove', ( done ) => {
 });
 
 /**
+ * >> Task: `remove-dist`. <<
+ * Elimina directorios y archivos generados para la distribución y despliegue del proyecto.
+ * 		
+ *    - Directorio y archivos generados para el proyento en:
+ * 				./dist
+ * 	  - Hojas de estilo que define el Tema para WordPress en:
+ *	      ./style.css
+ *	      ./style.css.map
+ *	      ./style.min.css
+ *
+ * Esta tarea hace lo siguiente:
+ *    1. Obtiene todas las rutas de los directorios y archivos a eliminar.
+ *    2. Elimina todos los archivos y directorios indicados
+ */ 
+gulp .task( 'remove-dist', ( done ) => {
+	return del .sync( [] .concat( config .dist ) );
+	done();
+});
+
+/**
  * >> Task: `jsFiles`. <<
  * Compila JavaScript a ES8 y Minifica JS.
  *
@@ -438,4 +463,9 @@ gulp .task(
 gulp .task( 
 	'paths', 
 	gulp .series ( paths ) 
+);
+
+gulp .task(
+	'remove-dist',
+	gulp .series( 'remove-dist' )
 );
