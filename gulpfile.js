@@ -29,7 +29,9 @@ const rename = require( 'gulp-rename' ),                        // Renombra arch
 			del = require( 'del' ),
 			remember = require( 'gulp-remember' ),                    // Recuerda todos los archivos que ha visto de nuevo en la transmisión.
 			stripdebug = require( 'gulp-strip-debug' ),								// Eliminar las declaraciones de consola, alerta y depurador del código JavaScript. Útil para asegurarse de que no dejó ningún registro en el código de producción.
-			cache = require( 'gulp-cache' ); 													// Archivos de caché en secuencia para su uso posterior.
+			cache = require( 'gulp-cache' ) 													// Archivos de caché en secuencia para su uso posterior.
+			strip_comments = require( 'gulp-strip-json-comments' ),		// Elimina comentarios de JSON con strip-json-comments. También permite usar comentarios en tus archivos JSON!
+			concatFiles = require( 'gulp-concat' );
 
 /**
  * >> Archivo de configuración de Gulp para WordPress <<
@@ -73,7 +75,8 @@ const config = {
 			scss: 	'./src/assets/sass/**/*.scss',                // Ruta a todos los archivos * .scss dentro de la carpeta css y dentro de ellos.
 			js:   	'./src/assets/js/**/*.js',                    // Ruta a todos los archivos JavaScript.
 			php:  	'./**/*.php',                                 // Ruta a todos los archivos PHP.
-			images: './src/assets/images/**/*.{png,jpg,gif,svg}'	// Ruta a todos los archivos de imagen.
+			images: './src/assets/images/**/*.{png,jpg,gif,svg}',	// Ruta a todos los archivos de imagen.
+			wp:			'./src/assets/wp/*.{txt,css,scss,sass}'				// Ruta Cabecera para definir un Tema en WordPress
 		}
 	},
 
@@ -180,9 +183,10 @@ gulp .task( 'styles', () => {
 		.pipe( sourcemaps .write( './' ) )
 		.pipe( lineec() )                                       // Terminaciones de línea consistentes para sistemas no UNIX.
 		.pipe( gulp .dest( config .style .main .dest ) )
-		.pipe( filter( config .style .filter ) )                           // Filtrado de la secuencia a sólo archivos css.
+		.pipe( filter( config .style .filter ) )                // Filtrado de la secuencia a sólo archivos css.
 		.pipe( mmq({ log: true }) )                             // Combinar consultas de medios solo para la versión .min.css.
 		.pipe( browserSync .stream() )                          // Vuelve a cargar style.css si está en cola.
+		.pipe( strip_comments() )																// Despojar los comentarios de Sass
 		.pipe( rename({ suffix: '.min' }) )
 		.pipe( minifycss({ maxLineLen: 10 }) )
 		.pipe( lineec() )                                       // Terminaciones de línea consistentes para sistemas no UNIX.
@@ -423,6 +427,28 @@ gulp .task( 'images', () => {
 });
 
 /**
+ * >> Task: `wp-style`. <<
+ * Concatena cabecera de definición de Tema para WordPress a su hoja de estilos 'style.css'
+ */
+gulp .task( 'wp-style', () => {
+	return gulp .src([ './src/assets/wp/style.{txt,css,scss,sass}', './style.css' ], { allowEmpty: true })
+			.pipe( concatFiles( './style.css' ) )
+			.pipe( gulp .dest( './' ) )
+			.pipe( notify({ message: '\n\n✅ "style.css" > Tema WordPress \n', onLast: true }) );
+});
+
+/**
+ * >> Task: `wp-style`. <<
+ * Concatena cabecera de definición de Tema para WordPress a su hoja de estilos 'style.min.css'
+ */
+gulp .task( 'wp-style-min', () => {
+	return gulp .src([ './src/assets/wp/style.{txt,css,scss,sass}', './style.min.css' ], { allowEmpty: true })
+			.pipe( concatFiles( './style.min.css' ) )
+			.pipe( gulp .dest( './' ) )
+			.pipe( notify({ message: '\n\n✅  "style.min.css" > Tema WordPress \n', onLast: true }) );
+});
+
+/**
  * >> Watch Tasks. <<
  * Observa cambios de archivos y ejecuta tareas específicas.
  */
@@ -433,10 +459,14 @@ gulp.task(
 			'images',
 			paths, gulp .parallel( 'jsLib', 'styles-lib' ), 
 			gulp .series( 'jsFiles', 'styles' ), 
+			gulp .series( 'wp-style', 'wp-style-min' ),
 			browsersync, 
 			() => {
 				gulp .watch( config .project .files .php, reload );                  																						// Recargar archivos PHP que cambien.
-				gulp .watch( config .project .files .scss, gulp .parallel( 'styles' ) ); 																				// Recargar archivos SCSS que cambien.
+				gulp .watch( 
+					[ config .project .files .scss ,config .project .files .wp ],
+					gulp .series( 'styles', gulp .series( 'wp-style', 'wp-style-min' ) ) )																				// Recargar archivos SCSS que cambien.
+						.on( 'change', browserSync .reload ); 												
 				gulp .watch( config .project .files .js, gulp .series( 'jsFiles', reload ) );																		// Recargar archivos JavaScript que cambien.
 				gulp .watch( config .project .files .images, gulp .series( 'images' ) ) .on( 'change', browserSync .reload );		// Recargar navegador cuando los archivos de imagen cambien.
 			}
