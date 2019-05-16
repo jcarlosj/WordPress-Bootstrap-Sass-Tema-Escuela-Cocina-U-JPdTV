@@ -25,13 +25,13 @@ const rename = require( 'gulp-rename' ),                        // Renombra arch
       notify = require( 'gulp-notify' ),                        // Te envía un mensaje de notificación.
       browserSync = require( 'browser-sync' ) .create(),        // Recarga el navegador e inyecta CSS. Prueba del navegador sincronizada que ahorra tiempo.
       plumber = require( 'gulp-plumber' ),                      // Prevenga la rotura de la tubería causada por errores de los complementos de Gulp.
-			beep = require( 'beepbeep' ),
-			del = require( 'del' ),
-			remember = require( 'gulp-remember' ),                    // Recuerda todos los archivos que ha visto de nuevo en la transmisión.
-			stripdebug = require( 'gulp-strip-debug' ),								// Eliminar las declaraciones de consola, alerta y depurador del código JavaScript. Útil para asegurarse de que no dejó ningún registro en el código de producción.
-			cache = require( 'gulp-cache' ) 													// Archivos de caché en secuencia para su uso posterior.
-			strip_comments = require( 'gulp-strip-json-comments' ),		// Elimina comentarios de JSON con strip-json-comments. También permite usar comentarios en tus archivos JSON!
-			concatFiles = require( 'gulp-concat' );
+	  beep = require( 'beepbeep' ),
+	  del = require( 'del' ),
+	  remember = require( 'gulp-remember' ),                    // Recuerda todos los archivos que ha visto de nuevo en la transmisión.
+	  stripdebug = require( 'gulp-strip-debug' ),								// Eliminar las declaraciones de consola, alerta y depurador del código JavaScript. Útil para asegurarse de que no dejó ningún registro en el código de producción.
+	  cache = require( 'gulp-cache' ) 													// Archivos de caché en secuencia para su uso posterior.
+	  strip_comments = require( 'gulp-strip-json-comments' ),		// Elimina comentarios de JSON con strip-json-comments. También permite usar comentarios en tus archivos JSON!
+	  concatFiles = require( 'gulp-concat' );
 
 /**
  * >> Archivo de configuración de Gulp para WordPress <<
@@ -72,7 +72,10 @@ const config = {
 			scss: 	'./src/assets/sass/**/*.scss',                // Ruta a todos los archivos * .scss dentro de la carpeta css y dentro de ellos.
 			js:   	'./src/assets/js/**/*.js',                    // Ruta a todos los archivos JavaScript.
 			php:  	'./**/*.php',                                 // Ruta a todos los archivos PHP.
-			images: './src/assets/images/**/*.{png,jpg,gif,svg}', // Ruta a todos los archivos de imagen.
+			images: {
+				src: './src/assets/images/**/*.{png,jpg,gif,svg}', // Ruta a todos los archivos de imagen.
+				dest: './dist/assets/images/'
+			},
 			wp:		'./src/assets/wp/*.{txt,css,scss,sass}'       // Ruta Cabecera para definir un Tema en WordPress
 		}
 	},
@@ -163,7 +166,7 @@ const errorHandler = r => {
  * Minimiza imágenes PNG, JPEG, GIF y SVG
  */ 
 function images () {
-	return src( config .project .files .images, { since: lastRun( images ) } )
+	return src( config .project .files .images .src, { since: lastRun( images ) } )
 		.pipe(
 			cache(
 				imagemin([
@@ -176,7 +179,7 @@ function images () {
 				])
 			)
 		)
-		.pipe( dest( './dist/assets/images/' ) )
+		.pipe( dest( config .project .files .images .dest ) )
 		.pipe( notify({ message: '  ✅ Imagenes optimizadas con éxito!! ', onLast: true }) );
 }
 
@@ -417,8 +420,9 @@ const server = done => {
 	
 
 	watch( './src/assets/sass/*.scss', series( scss ) ); 
-	watch( './dist/temp/css/*.css', series( wp_style, wp_style_min ) );
+	watch( './dist/temp/css/*.css', series( wp_style_map, wp_style, wp_style_min ) );
 
+	watch([ config .project .files .images. src ]) .on( 'change', browserSync .reload );    
 	watch([ config .project .files .php ]) .on( 'change', browserSync .reload );    
 	watch([ './*.html' ]) .on( 'change', browserSync .reload );    
 	
@@ -437,19 +441,22 @@ module .exports = {
 		images, 
 		library_scripts, 
 		library_styles, 
-		scss, 
+		scss,
+		wp_style_map,  
 		wp_style, 
 		wp_style_min, 
 		server,
 		() => {
 			watch( './src/assets/sass/*.scss', series( scss ) ); 
-			watch( './dist/temp/css/*.css', series( wp_style, wp_style_min ) );
+			watch( './dist/temp/css/*.css', series( wp_style_map, wp_style, wp_style_min ) );
 
+			watch([ config .project .files .images .src ]) .on( 'change', browserSync .reload );    
 			watch([ config .project .files .php ]) .on( 'change', browserSync .reload );    
 			watch([ './*.html' ]) .on( 'change', browserSync .reload );    
 			watch([ './style.min.css' ]) .on( 'change', browserSync .reload );
 			console .log( '  ✅ Watching Default!' ); 
 		} ),	
 	scss,
-	rmdist: series( remove_dist )
+	rmdist: series( remove_dist ),
+	cpmap: series( wp_style_map )
 } 
