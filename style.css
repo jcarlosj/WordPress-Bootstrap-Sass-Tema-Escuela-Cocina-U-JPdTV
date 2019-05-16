@@ -1,12 +1,23 @@
-/**
-  *  Theme Name: Escuela Cocina
-  *  Theme URI: 
-  *  Author: Juan Carlos Jiménez Gutiérrez
-  *  Author URI: https://github.com/jcarlosj/
-  *  Description: Tema Escuela de Cocina (2019-05-14)
-  *  Version: 1.0.0
-  *  License: GNU General Public License v2 or later
-  *  License URI: LICENSE
-  *  Text Domain: escuelacocina
-  *  Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
-*/
+/*
+ *  Theme Name: Escuela Cocina
+ *  Theme URI: 
+ *  Author: Juan Carlos Jiménez Gutiérrez
+ *  Author URI: https://github.com/jcarlosj/
+ *  Description: Tema Escuela de Cocina (2019-05-14)
+ *  Version: 1.0.0
+ *  License: GNU General Public License v2 or later
+ *  License URI: LICENSE
+ *  Text Domain: escuelacocina
+ *  Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+ */
+@charset "UTF-8";
+/* Theme Name: Escuela Cocina Theme URI:  Author: Juan Carlos Jiménez Gutiérrez Author URI: https://github.com/jcarlosj/ Description: Tema Escuela de Cocina (2019-05-14) Version: 1.0.0 License: GNU General Public License v2 or later License URI: LICENSE Text Domain: escuelacocina Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready */
+body h1 { color: gray; font-size: 3.3rem; font-weight: normal; }
+
+body h2 { color: blue; font-size: 2.2rem; }
+
+body h3 { color: yellowgreen; font-size: 1.8rem; }
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3R5bGUuY3NzIiwic291cmNlcyI6WyJzdHlsZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQSxvWUFXRztBQUVILEFBRUksSUFGQSxDQUVBLEVBQUUsQ0FBQyxFQUNDLEtBQUssRUFBRSxJQUFJLEVBQ1gsU0FBUyxFQUFFLE1BQU0sRUFDakIsV0FBVyxFQUFFLE1BQU0sR0FDdEI7O0FBTkwsQUFPSSxJQVBBLENBT0EsRUFBRSxDQUFDLEVBQ0MsS0FBSyxFQUFHLElBQUksRUFDWixTQUFTLEVBQUUsTUFBTSxHQUNwQjs7QUFWTCxBQVdJLElBWEEsQ0FXQSxFQUFFLENBQUMsRUFDQyxLQUFLLEVBQUcsV0FBVyxFQUNuQixTQUFTLEVBQUUsTUFBTSxHQUNwQiJ9 */
+
+/*# sourceMappingURL=style.css.map */
