@@ -1,21 +1,18 @@
 <!DOCTYPE html>
-<html lang="es">
+<html <?php language_attributes(); ?> >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home - Escuela de Cocina</title>
-
-    <link rel="stylesheet" href="./dist/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="./dist/assets/css/master.css">
+    <?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class(); ?> >
     <header class="header py-5">
         <div class="container">
             <div class="row justify-content-center align-items-center">
                 <div class="col-8 col-sm-6 col-md-4 mb-4 mb-md-0">
-                    <a href="#">
-                        <img class="img-fluid" src="./dist/assets/images/logo.svg" alt="Escuela de Cocina">
+                    <a href="<?php echo esc_url( home_url( './' ) ); ?>">
+                        <img class="img-fluid" src="<?php echo get_template_directory_uri() .'/dist/assets/images/logo.svg'; ?>" alt="Escuela de Cocina">
                     </a>
                 </div>  <!-- .col-md-4 -->
                 <div class="col-md-8">

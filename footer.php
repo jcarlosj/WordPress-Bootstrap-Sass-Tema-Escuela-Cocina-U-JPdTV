@@ -19,7 +19,6 @@
         </div>
     </footer>
 
-    <script src="./dist/assets/js/jquery.min.js"></script>
-    <script src="./dist/assets/js/bootstrap.min.js"></script>
+    <?php wp_footer(); ?>
 </body>
 </html>
