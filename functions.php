@@ -25,4 +25,17 @@ function escuelacocina_menu_areas() {
 }
 add_action( 'after_setup_theme', 'escuelacocina_menu_areas' );
 
+/** Modifica atributos de items de lista de menu 
+ * 
+ * Agrega la clase 'nav-link' al elemento li del menú principal
+*/
+function escuelacocina_modify_attributes_list_items_menu( $attrs, $items, $args ) {
+    # Valida la existencia de una ubicación de menú llamada 'main_menu'
+    if( $args -> theme_location == 'main_menu' ) {
+        $attrs[ 'class' ] = 'nav-link';
+    }
+    return $attrs;
+}
+add_filter( 'nav_menu_link_attributes', 'escuelacocina_modify_attributes_list_items_menu', 10, 3 );
+
 ?>
