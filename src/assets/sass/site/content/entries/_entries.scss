@@ -1,0 +1,15 @@
+.entry {
+    a {
+        color: $color__link-active;
+    }
+    &-content {
+        .meta {
+            p {
+                font-weight: 700;
+            }
+        }
+        span {
+            color: $color__text-date;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+.page-lesson {
+    .lesson {
+        &__title {
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+        &__subtitle {
+            font-size: 1.1rem;
+            color: darken( $color__text-subtitle, 20% );
+            
+        }
+    }
+    .instructor {
+        &__title {
+            color: $color__text-main;
+            font-weight: 700;
+        }
+        &__name {
+            color: darken( $color__text-name, 20% );
+            font-size: 1.5rem;
+        }
+    }
+}

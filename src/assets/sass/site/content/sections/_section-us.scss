@@ -1,0 +1,42 @@
+.us {
+
+    &__experience {
+        &--bg-image {
+            background-image: url( './dist/assets/images/experiencia.jpg' );
+        }
+    }
+    &__experience &__content {
+        border-top: 1px solid $color__border-content-experience;
+        border-bottom: 1px solid $color__border-content-experience;
+    }
+
+    &__about-us {
+        &--bg-image {
+            background-image: url( './dist/assets/images/nosotros.jpg' );
+            order: 2;
+
+            @include media-md {
+                order: -1;
+            }
+        }
+    }
+    &__about-us &__content {
+        border-top: 1px solid $color__border-content-about-us;
+        border-bottom: 1px solid $color__border-content-about-us;
+    }
+    
+    &__experience,
+    &__about-us {
+        &--bg-image {
+            background-position: top center;
+            background-size: cover;
+        }
+        & > div {
+            height: 30rem;
+            
+            @include media-md {
+                height: 45rem;
+            }
+        }
+    }
+}

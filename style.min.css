@@ -10,6 +10,65 @@
  *  Text Domain: escuelacocina
  *  Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
  */
-body h1{color:gray;font-size:3.3rem;font-weight:normal}
-body h2{color:blue;font-size:2.2rem}
-body h3{color:yellowgreen;font-size:1.8rem}
+.page .bg-primary{background-color:#f46669 !important}
+.page .bg-secondary{background-color:#b0afaf !important}
+.page .btn-primary{background-color:#f46669 !important;border-color:#f46669 !important}
+.page .btn-primary:hover{background-color:#f1363a !important;border-color:#f1363a !important}
+.page .btn-primary:focus,.page .btn-primary.focus{-webkit-box-shadow:0 0 0 .2rem #f5b0b1 !important;box-shadow:0 0 0 .2rem #f5b0b1 !important}
+.page .btn-primary.disabled,.page .btn-primary:disabled{background-color:#f1363a !important;border-color:#f1363a !important}
+.page .btn-primary:not(:disabled):not(.disabled):active,.page .btn-primary:not(:disabled):not(.disabled).active,.show>.page .btn-primary.dropdown-toggle{background-color:#f1363a !important;border-color:#f1363a !important}
+.page .btn-primary:not(:disabled):not(.disabled):active:focus,.page .btn-primary:not(:disabled):not(.disabled).active:focus,.show>.page .btn-primary.dropdown-toggle:focus{-webkit-box-shadow:0 0 0 .2rem #f5b0b1 !important;box-shadow:0 0 0 .2rem #f5b0b1 !important}
+.page .list-group-item-primary,.page .list-group-item-secondary{background-color:#f79698 !important}
+body{font-family:Arial,sans-serif;color:#303030}
+p{font-size:1rem;font-weight:300;line-height:2rem}
+a.text-light{color:white !important}
+a.text-light:hover,a.text-light:focus{color:white !important}
+.header .navbar-light .navbar-nav .nav-link,.footer .navbar-light .navbar-nav .nav-link{color:black}
+.header .navbar-light .navbar-nav .nav-link.active,.footer .navbar-light .navbar-nav .nav-link.active{color:#f46669;border-bottom:2px solid #f46669}
+.header .navbar-light .navbar-nav .nav-link:hover,.footer .navbar-light .navbar-nav .nav-link:hover{color:#f46669}
+.blog{margin-bottom:3rem}
+.page .outstanding-image{background-size:cover;height:24rem}
+.page .outstanding-image-us{background-image:url("./dist/assets/principal1.jpg")}
+.page .outstanding-image-lesson{background-image:url("./dist/assets/clase-1.jpg")}
+.page .outstanding-image-contact{background-image:url("./dist/assets/contact.jpg")}
+.page .content{background-color:#FFF;border:1px solid #e1e1e1;margin-top:-5rem;position:relative;z-index:100}
+.home .lessons{background-color:#f5f5f5}
+.page-lesson .lesson__title{font-size:2.2rem;font-weight:700}
+.page-lesson .lesson__subtitle{font-size:1.1rem;color:#e41015}
+.page-lesson .instructor__title{color:#303030;font-weight:700}
+.page-lesson .instructor__name{color:#e41015;font-size:1.5rem}
+.entry a{color:#f46669}
+.entry-content .meta p{font-weight:700}
+.entry-content span{color:#f46669}
+.lessons .card .badge-secondary{background-color:#f5f5f5;color:black;font-size:.9rem}
+.lessons .card-title{font-weight:700}
+.lessons .card--subtitle{color:#f1363a;font-size:.9rem;font-weight:400}
+.outstanding__phrase{border-left:.2rem solid #f46669;color:#303030;font-size:1.6rem;font-style:italic;font-weight:100}
+.outstanding__phrase--author{color:#f1363a;display:block;text-align:right}
+.study-with-us__info h3{font-size:1.6rem;font-weight:300}
+.us__experience--bg-image{background-image:url("./dist/assets/images/experiencia.jpg")}
+.us__experience .us__content{border-top:1px solid #fff;border-bottom:1px solid #fff}
+.us__about-us--bg-image{background-image:url("./dist/assets/images/nosotros.jpg");-webkit-box-ordinal-group:3;-ms-flex-order:2;order:2}
+.us__about-us .us__content{border-top:1px solid #303030;border-bottom:1px solid #303030}
+.us__experience--bg-image,.us__about-us--bg-image{background-position:top center;background-size:cover}
+.us__experience>div,.us__about-us>div{height:30rem}
+.be-a-chef{background-image:url("./dist/assets/images/be-a-chef.jpg");background-size:cover;background-position:center}
+.be-a-chef .row{height:34rem}
+.be-a-chef h2{font-size:2.4rem;font-weight:700}
+.be-a-chef .display-4{font-size:1.8rem;line-height:3rem}
+.sidebar a{color:#f5f5f5}
+.sidebar a.more-information{color:#f1363a}
+.sidebar a.more-information:hover{color:#840a0c}
+.sidebar a:hover{color:#f5f5f5}
+.sidebar .card{border:0}
+.sidebar .card-title{color:black;font-size:1.2rem;font-weight:700}
+.sidebar .card--subtitle{color:#f1363a;font-size:.9rem;font-weight:400}
+.sidebar .card-text{font-size:.9rem;line-height:1.4}
+.sidebar .card-footer{font-size:.9rem}
+.footer{border-bottom:10px solid #f46669;padding:2rem 0 1.5rem 0}
+.copyright{font-size:1.2rem;font-weight:700}
+.separator::after{background-image:url("./dist/assets/images/separador.png");background-repeat:no-repeat;background-position:center;content:'';display:block;height:70px;margin:0 auto;width:100%}
+.separator--light::after{background-image:url("./dist/assets/images/separador_alternativo.png");background-repeat:no-repeat;background-position:center;content:'';display:block;height:70px;margin:0 auto;width:100%}
+@media(min-width:768px){.us__about-us--bg-image{-webkit-box-ordinal-group:0;-ms-flex-order:-1;order:-1}
+.us__experience>div,.us__about-us>div{height:45rem}
+}

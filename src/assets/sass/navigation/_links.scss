@@ -1,0 +1,10 @@
+a {
+    &.text-light {
+        color: $color__link-text-light ! important;
+
+        &:hover,
+        &:focus {
+            color: $color__link-text-light ! important;
+        }
+    }
+}

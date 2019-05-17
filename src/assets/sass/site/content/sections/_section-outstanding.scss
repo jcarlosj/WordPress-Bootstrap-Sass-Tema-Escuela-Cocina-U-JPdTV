@@ -1,0 +1,14 @@
+.outstanding {
+    &__phrase {
+        border-left: .2rem solid $color__border-left-outstanding-phrase;
+        color: $color__text-main;
+        font-size: 1.6rem;
+        font-style: italic;
+        font-weight: 100;
+        &--author {
+            color: darken( $color__text-author, 10% );
+            display: block;
+            text-align: right;
+        }
+    }
+}

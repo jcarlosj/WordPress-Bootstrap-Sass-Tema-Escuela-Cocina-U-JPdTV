@@ -1,0 +1,25 @@
+.page {
+    
+    .outstanding {
+        &-image {
+            background-size: cover;
+            height: 24rem;
+        }
+        &-image-us {
+            background-image: url( './dist/assets/principal1.jpg' );
+        }
+        &-image-lesson {
+            background-image: url( './dist/assets/clase-1.jpg' );
+        }
+        &-image-contact {
+            background-image: url( './dist/assets/contact.jpg' );
+        }
+    }
+    .content {
+        background-color: $color__background-content;
+        border: 1px solid $color__border-content;
+        margin-top: -5rem;
+        position: relative;
+        z-index: 100;
+    }    
+}

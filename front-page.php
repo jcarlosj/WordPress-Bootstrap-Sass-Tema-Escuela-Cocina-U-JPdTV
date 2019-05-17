@@ -51,17 +51,17 @@
             <h2 class="text-center my-5 separator">¿Por qué estudiar con nosotros?</h2>
             <div class="row">
                 <div class="col-md-4 text-center study-with-us__info">
-                    <img class="img-fluid mb-3" src="./dist/assets/images/icono_chef.png" alt="Chef's Internacionales">
+                    <img class="img-fluid mb-3" src="<?php echo get_template_directory_uri() .'/dist/assets/images/icono_chef.png'; ?>" alt="Chef's Internacionales">
                     <h3>Chef's Internacionales</h3>
                     <p>Todo el conocimiento es impartido por los Chef's más destacados de esta industria, reconocidos internacionalmente.</p>
                 </div><!-- .col-md-4 -->
                 <div class="col-md-4 text-center study-with-us__info">
-                    <img class="img-fluid mb-3" src="./dist/assets/images/icono_vino.png" alt="Todo sobre bebidas">
+                    <img class="img-fluid mb-3" src="<?php echo get_template_directory_uri() .'/dist/assets/images/icono_vino.png'; ?>" alt="Todo sobre bebidas">
                     <h3>Todo sobre bebidas</h3>
                     <p>Aprenderás de catadores certificados expertos en bebidas cual es el mejor acompañante para cada plato.</p>
                 </div><!-- .col-md-4 -->   
                 <div class="col-md-4 text-center study-with-us__info">
-                    <img class="img-fluid mb-3" src="./dist/assets/images/icono_menu.png" alt="Menú del mundo">
+                    <img class="img-fluid mb-3" src="<?php echo get_template_directory_uri() .'/dist/assets/images/icono_menu.png'; ?>" alt="Menú del mundo">
                     <h3>Platillos y técnicas</h3>
                     <p>El programa actualiza constantemente el recetario y las técnicas. Toda la puesta en escena de la gastronomía mundial.</p>
                 </div><!-- .col-md-4 -->
@@ -77,7 +77,7 @@
                     <div class="col-md-6 col-lg-4">
 
                         <div class="card my-3">
-                            <img src="./dist/assets/images/clase-1.jpg" class="card-img-top" alt="...">
+                            <img src="<?php echo get_template_directory_uri() .'/dist/assets/images/clase-1.jpg'; ?>" class="card-img-top" alt="...">
                             <div class="card--meta bg-primary py-2 px-3 text-light d-flex justify-content-between align-items-center">
                                 <p class="m-0">21 de Febrero, 3:00pm</p>
                                 <span class="badge badge-secondary p-2">$ 600.000.oo</span>
@@ -97,7 +97,7 @@
                     <div class="col-md-6 col-lg-4">
 
                         <div class="card my-3">
-                            <img src="./dist/assets/images/clase-2.jpg" class="card-img-top" alt="...">
+                            <img src="<?php echo get_template_directory_uri() .'/dist/assets/images/clase-2.jpg'; ?>" class="card-img-top" alt="...">
                             <div class="card--meta bg-primary py-2 px-3 text-light d-flex justify-content-between align-items-center">
                                 <p class="m-0">28 de Mayo, 5:00pm</p>
                                 <span class="badge badge-secondary p-2">$ 650.000.oo</span>
@@ -117,7 +117,7 @@
                     <div class="col-md-6 col-lg-4">
 
                         <div class="card my-3">
-                            <img src="./dist/assets/images/clase-3.jpg" class="card-img-top" alt="...">
+                            <img src="<?php echo get_template_directory_uri() .'/dist/assets/images/clase-3.jpg'; ?>" class="card-img-top" alt="...">
                             <div class="card--meta bg-primary py-2 px-3 text-light d-flex justify-content-between align-items-center">
                                 <p class="m-0">8 de Abril, 10:00am</p>
                                 <span class="badge badge-secondary p-2">$ 400.000.oo</span>
@@ -137,7 +137,7 @@
                     <div class="col-md-6 col-lg-4">
 
                         <div class="card my-3">
-                            <img src="./dist/assets/images/clase-4.jpg" class="card-img-top" alt="...">
+                            <img src="<?php echo get_template_directory_uri() .'/dist/assets/images/clase-4.jpg'; ?>" class="card-img-top" alt="...">
                             <div class="card--meta bg-primary py-2 px-3 text-light d-flex justify-content-between align-items-center">
                                 <p class="m-0">13 de Agosto, 9:00pm</p>
                                 <span class="badge badge-secondary p-2">$ 400.000.oo</span>
@@ -157,7 +157,7 @@
                     <div class="col-md-6 col-lg-4">
 
                         <div class="card my-3">
-                            <img src="./dist/assets/images/clase-5.jpg" class="card-img-top" alt="...">
+                            <img src="<?php echo get_template_directory_uri() .'/dist/assets/images/clase-5.jpg'; ?> " class="card-img-top" alt="...">
                             <div class="card--meta bg-primary py-2 px-3 text-light d-flex justify-content-between align-items-center">
                                 <p class="m-0">21 de Septiembre, 5:00pm</p>
                                 <span class="badge badge-secondary p-2">$ 460.000.oo</span>
@@ -177,7 +177,7 @@
                     <div class="col-md-6 col-lg-4">
 
                         <div class="card my-3">
-                            <img src="./dist/assets/images/clase-6.jpg" class="card-img-top" alt="...">
+                            <img src="<?php echo get_template_directory_uri() .'/dist/assets/images/clase-6.jpg'; ?>" class="card-img-top" alt="...">
                             <div class="card--meta bg-primary py-2 px-3 text-light d-flex justify-content-between align-items-center">
                                 <p class="m-0">2 de Octubre, 10:00pm</p>
                                 <span class="badge badge-secondary p-2">$ 340.000.oo</span>

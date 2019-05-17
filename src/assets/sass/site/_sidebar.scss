@@ -1,0 +1,38 @@
+.sidebar {
+    a {
+        color: $color__link-sidebar;
+
+        &.more-information {
+            color: darken( $color__link-active, 10% );
+
+            &:hover {
+                color: darken( $color__link-active, 40% );
+            }
+        }
+        &:hover {
+            color: $color__link-sidebar-hover;
+        }
+    }
+
+    .card {
+        border: none;
+        &-title {
+            color: $color__text-card-title;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        &--subtitle {
+            color: darken( $color__text-card-subtitle, 10% );
+            font-size: .9rem;
+            font-weight: 400;
+        }
+        &-text {
+            font-size: .9rem;
+            line-height: 1.4;
+        }
+        &-footer {
+            font-size: .9rem;
+        }
+    }
+
+}

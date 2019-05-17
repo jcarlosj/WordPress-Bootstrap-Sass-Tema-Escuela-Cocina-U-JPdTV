@@ -1,0 +1,19 @@
+.header,
+.footer {
+    .navbar-light {
+        .navbar-nav {
+            .nav-link {
+                color: $color__link;
+
+                &.active {
+                    color: $color__link-active;
+                    border-bottom: 2px solid $color__border-link;
+                }
+
+                &:hover {
+                    color: $color__link-hover;
+                }
+            }
+        }
+    }   
+}
