@@ -20,15 +20,15 @@
                         <button class="navbar-toggler mb-4" type="button" data-toggle="collapse" data-target="#menu-main" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <div id="menu-main" class="collapse navbar-collapse justify-content-center justify-content-lg-end">
-                            <ul class="menu navbar-nav text-center text-uppercase">
-                                <li><a class="nav-link" href="./nosotros.html">Nosotros</a></li>
-                                <li><a class="nav-link" href="./blog.html">Blog</a></li>
-                                <li><a class="nav-link" href="./clases.html">Clases</a></li>
-                                <li><a class="nav-link" href="./galeria.html">Galería</a></li>
-                                <li><a class="nav-link" href="./contacto.html">Contacto</a></li>
-                            </ul>  <!-- #menu-main -->
-                        </div>  <!-- .navbar -->
+                        <?php # Define zona de menú en el tema 
+                            $args = array(
+                                'theme_location'  => 'main_menu',    # Nombre de la ubicación del tema
+                                'container_id'    => 'menu-main',
+                                'container_class' => 'collapse navbar-collapse justify-content-center justify-content-lg-end',
+                                'items_wrap'      => '<ul id="%1$s" class="%2$s navbar-nav text-center text-uppercase">%3$s</ul>'
+                            );
+                            wp_nav_menu( $args );
+                        ?>
                     </nav>  <!-- .nav -->
                 </div>  <!-- .col-md-8 -->
             </div>  <!-- .row -->
