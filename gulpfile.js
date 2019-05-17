@@ -84,7 +84,7 @@ const config = {
 	style: {
 		filter: '**/*.css',
 		main: {
-			src: './src/assets/sass/style.scss',                // Ruta al archivo principal .scss.
+			src: './src/assets/sass/**/*.scss',                 // Ruta al archivo principal .scss.
 			dest: './',                                         // Ruta para colocar el archivo CSS compilado. Predeterminado establecido en la carpeta raíz.
 			outputStyle: 'compact',                             // Opciones disponibles → 'compact' or 'compressed' or 'nested' or 'expanded'
 			errLogToConsole: true,
@@ -419,10 +419,10 @@ const server = done => {
 	*/
 	
 
-	watch( './src/assets/sass/*.scss', series( scss ) ); 
+	watch( './src/assets/sass/**/.scss', series( scss ) ); 
 	watch( './dist/temp/css/*.css', series( wp_style_map, wp_style, wp_style_min ) );
 
-	watch([ config .project .files .images. src ]) .on( 'change', browserSync .reload );    
+	watch([ config .project .files .images. src ], series( images ) ) .on( 'change', browserSync .reload );    
 	watch([ config .project .files .php ]) .on( 'change', browserSync .reload );    
 	watch([ './*.html' ]) .on( 'change', browserSync .reload );    
 	
@@ -447,10 +447,10 @@ module .exports = {
 		wp_style_min, 
 		server,
 		() => {
-			watch( './src/assets/sass/*.scss', series( scss ) ); 
+			watch( './src/assets/sass/**/*.scss', series( scss ) ); 
 			watch( './dist/temp/css/*.css', series( wp_style_map, wp_style, wp_style_min ) );
 
-			watch([ config .project .files .images .src ]) .on( 'change', browserSync .reload );    
+			watch([ config .project .files .images .src ], series( images ) ) .on( 'change', browserSync .reload );    
 			watch([ config .project .files .php ]) .on( 'change', browserSync .reload );    
 			watch([ './*.html' ]) .on( 'change', browserSync .reload );    
 			watch([ './style.min.css' ]) .on( 'change', browserSync .reload );
