@@ -1,5 +1,9 @@
 <?php 
 
+/** Integración del Plugin CMB2 al Tema */
+require_once dirname( __FILE__ ) .'/integrated-plugins/example-functions.php';      # Archivo de campos de ejemplo de CMB2.
+require_once dirname( __FILE__ ) .'/inc/custom-fields.php';                         # Archivo de configuración de campos personalizados de CMB2 (v2.6.0) disponibles para el tema.
+
 /** Enqueue scripts and styles. */
 function escuelacocina_scripts() {
     // wp_enqueue_style( 'escuelacocina-style', get_stylesheet_uri() );										// Enlaza automáticamente hoja de estilos style.css en el raíz del tema
