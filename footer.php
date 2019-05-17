@@ -13,7 +13,7 @@
                     ?>
                 </div>
                 <div class="col-md-6">
-                    <p class="text-center text-md-right mt-1 mt-md-0 pt-2 copyright">Todos los derechos reservados &copy; 2019</p>
+                    <p class="text-center text-md-right mt-1 mt-md-0 pt-2 copyright">Todos los derechos reservados &copy; <?php echo date( 'Y' ) ?> </p>
                 </div>
             </div>
         </div>
