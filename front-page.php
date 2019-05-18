@@ -1,5 +1,9 @@
 <?php get_header(); ?>
 
+<?php # Open Loop WP 
+    while( have_posts() ): the_post();
+?>
+
 <div class="page page-index">
     <main>
 
@@ -10,19 +14,13 @@
                     <div class="row justify-content-center align-items-center h-100">
                         <div class="col-sm-8 col-md-6">
                             <div class="text-center text-light us__content py-3">
-                                <h2>"15 años formando a los mejores".</h2>
-                                <p>Nunc vel elit et tellus ultricies tincidunt quis ac tellus. Duis quis nulla urna. Phasellus pellentesque dapibus lacus.</p>
+                                <?php echo get_post_meta( get_the_ID(), 'ec_section_us_descripcion_1', true ); ?>
                             </div>
                         </div>    
                     </div><!-- .row .justify-content-center .align-items-center -->
 
                 </div>
-                <div class="col-md-6 us__experience--bg-image">
-                    <div class="row justify-content-center align-items-center h-100">
-                        <div class="col-sm-8 col-md-6">
-                        </div>
-                    </div>
-                </div>
+                <div class="col-md-6 us__experience--bg-image" style="background-image: url( '<?php echo get_post_meta( get_the_ID(), 'ec_section_us_imagen_1', true ); ?>' );"></div>
             </div><!-- .row -->
             <div class="row us__about-us">
                 <div class="col-md-6 bg-secondary">
@@ -30,20 +28,13 @@
                     <div class="row justify-content-center align-items-center h-100">
                         <div class="col-sm-8 col-md-6">
                             <div class="text-center us__content py-3">
-                                <h2>Sobre nosotros.</h2>
-                                <p>Aperiam inventore assumenda, earum at excepturi quo. Possimus perspiciatis fugit quo repudiandae harum accusamus eum ad quia impedit amet quaerat, odio autem.</p>
-                                <p>Iure placeat, itaque aliquam repellat ipsam consequuntur qui similique cum assumenda culpa impedit eum necessitatibus.</p>
+                                <?php echo get_post_meta( get_the_ID(), 'ec_section_us_descripcion_2', true ); ?>
                             </div>
                         </div>    
                     </div><!-- .row .justify-content-center .align-items-center -->
 
                 </div>
-                <div class="col-md-6 us__about-us--bg-image">
-                    <div class="row justify-content-center align-items-center h-100">
-                        <div class="col-sm-8 col-md-6">
-                        </div>
-                    </div>
-                </div>
+                <div class="col-md-6 us__about-us--bg-image" style="background-image: url( '<?php echo get_post_meta( get_the_ID(), 'ec_section_us_imagen_2', true ); ?>' );"></div>
             </div><!-- .row -->
         </section><!-- section.content-fluid -->
         
@@ -217,5 +208,9 @@
 
     </main>
 </div><!-- .page .page-index -->
+
+<?php # Close Loop WP 
+    endwhile;
+?>
 
 <?php get_footer(); ?>

@@ -2,7 +2,7 @@
 
     &__experience {
         &--bg-image {
-            background-image: url( './dist/assets/images/experiencia.jpg' );
+            //background-image: url( './dist/assets/images/experiencia.jpg' );
         }
     }
     &__experience &__content {
@@ -12,7 +12,7 @@
 
     &__about-us {
         &--bg-image {
-            background-image: url( './dist/assets/images/nosotros.jpg' );
+            //background-image: url( './dist/assets/images/nosotros.jpg' );
             order: 2;
 
             @include media-md {
