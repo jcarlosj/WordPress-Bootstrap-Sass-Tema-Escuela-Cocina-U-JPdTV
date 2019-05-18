@@ -96,4 +96,64 @@
 
     }
     add_action( 'cmb2_admin_init', 'escuelacocina_custom_fields_section_us' );
+
+    /** Home Page > front-page.php 
+     * Metaboxes for the section be a chef 
+     */
+    function escuelacocina_custom_fields_section_be_a_chef() {
+        $prefix = 'ec_section_be_a_chef_';
+        $home_id = get_option( 'page_on_front' );       # Get ID Page
+
+        # Metabox que se mostrará en una sola página ID
+        $cmb_section_be_a_chef = new_cmb2_box(
+            array(
+                'id' => $prefix .'metabox',
+                'title' => esc_html__( 'Sección Sé Chef', 'escuelacocina' ),
+                'object_types'  => array( 'page' ),         # Post type
+                'show_on' => array( 'id' => $home_id ),     # Only show on the "home" page
+                'show_names' => true, # Show field names on the left
+                'context'    => 'normal',
+                'priority'   => 'high',
+                'mb_callback_args' => [ '__block_editor_compatible_meta_box' => true ],
+            )
+        );
+        # Campo cargar imagen: Sé un Chef
+        $cmb_section_be_a_chef -> add_field( 
+            array(
+                'name' => esc_html__( 'Imagen 1:', 'cmb2' ),
+                'desc' => esc_html__( 'Sube una imágen o ingresa una URL (Sé un chef)', 'cmb2' ),
+                'id'   => $prefix . 'imagen_1',
+                'type' => 'file',
+                'text' => array(
+                    'add_upload_file_text' => esc_html__( 'Agregar imagen', 'cmb2' ), # Change upload button text. Default: "Add or Upload File"
+                ),
+                 // query_args are passed to wp.media's library query.
+                'query_args' => array(
+                    //'type' => 'application/pdf', // Make library only display PDFs.
+                    // Or only allow gif, jpg, or png images
+                    'type' => array(
+                        'image/gif',
+                        'image/jpeg',
+                        'image/png',
+                    ),
+                ),
+                'preview_size' => array( '341', '256' ), // Image size to use when previewing in the admin.
+                'mb_callback_args' => ['__block_editor_compatible_meta_box' => true]
+            ) 
+        );
+        # Campo textarea: Experiencia
+        $cmb_section_be_a_chef -> add_field( 
+            array(
+                'name'    => esc_html__( 'Descripción 1:', 'cmb2' ),
+                'desc'    => esc_html__( 'Breve enunciado  (Sé un chef)', 'cmb2' ),
+                'id'      => $prefix . 'descripcion_1',
+                'type'    => 'wysiwyg',
+                'options' => array(
+                    'textarea_rows' => 2,
+                ),
+            ) 
+        );
+
+    }
+    add_action( 'cmb2_admin_init', 'escuelacocina_custom_fields_section_be_a_chef' );
 ?>

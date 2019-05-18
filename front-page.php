@@ -193,14 +193,14 @@
             </div><!-- container -->
 
         </section><!-- container-fluid .lessons -->
-
-        <section class="container-fluid be-a-chef">
+    
+        <section class="container-fluid be-a-chef" style="background-image: url( '<?php echo get_post_meta( get_the_ID(), 'ec_section_be_a_chef_imagen_1', true ); ?>' );">
             <div class="container">
                 <div class="row justify-content-center align-content-center">
                     <div class="col-md-8 text-center text-light">
-                        <h2>¿Quiéres ser Chef?</h2>
-                        <p class="display-4">Estudia con nosotros y conviertete en Chef al lado de los mejores.</p>
-                        <a href="./contacto.html" class="btn btn-primary text-uppercase">Más información</a>
+                        <?php echo get_post_meta( get_the_ID(), 'ec_section_be_a_chef_descripcion_1', true ); ?>
+                        <?php $contact_page = get_page_by_title( 'Contacto' ); ?>
+                        <a href="<?php echo get_permalink( $contact_page -> ID ); ?>" class="btn btn-primary text-uppercase">Más información</a>
                     </div>
                 </div>
             </div>
@@ -208,6 +208,14 @@
 
     </main>
 </div><!-- .page .page-index -->
+
+<!--pre>
+    <code>
+        <?php # To Debug
+            #echo var_export( get_post_custom( get_the_ID(), true ) ); 
+        ?>
+    </code>
+</pre-->
 
 <?php # Close Loop WP 
     endwhile;
