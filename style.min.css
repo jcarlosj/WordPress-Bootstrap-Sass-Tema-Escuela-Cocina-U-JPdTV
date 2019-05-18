@@ -46,9 +46,8 @@ a.text-light:hover,a.text-light:focus{color:white !important}
 .outstanding__phrase{border-left:.2rem solid #f46669;color:#303030;font-size:1.6rem;font-style:italic;font-weight:100}
 .outstanding__phrase--author{color:#f1363a;display:block;text-align:right}
 .study-with-us__info h3{font-size:1.6rem;font-weight:300}
-.us__experience--bg-image{background-image:url("./dist/assets/images/experiencia.jpg")}
 .us__experience .us__content{border-top:1px solid #fff;border-bottom:1px solid #fff}
-.us__about-us--bg-image{background-image:url("./dist/assets/images/nosotros.jpg");-webkit-box-ordinal-group:3;-ms-flex-order:2;order:2}
+.us__about-us--bg-image{-webkit-box-ordinal-group:3;-ms-flex-order:2;order:2}
 .us__about-us .us__content{border-top:1px solid #303030;border-bottom:1px solid #303030}
 .us__experience--bg-image,.us__about-us--bg-image{background-position:top center;background-size:cover}
 .us__experience>div,.us__about-us>div{height:30rem}
