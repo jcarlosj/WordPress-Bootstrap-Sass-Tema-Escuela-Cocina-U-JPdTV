@@ -53,3 +53,24 @@
         }
     }    
 }
+
+.current_page_item {
+    border: 0;
+
+    .nav-link {
+        color: $color__link-active ! important;
+        font-weight: 600;
+    
+        &:hover {
+            color: $color__link-hover ! important;
+        }
+    }
+
+    @include media-sm {
+        border-bottom: 2px solid $color__link-active;
+
+        .nav-link {
+            font-weight: normal;
+        }
+    }
+}
