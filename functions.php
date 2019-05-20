@@ -20,11 +20,13 @@ add_action( 'wp_enqueue_scripts', 'escuelacocina_scripts' );
 /** Define  */
 function escuelacocina_featured_image_of_page( $id ) {
     
-    $html = '';
+    $template = '';
+    $image_exists = false;
     $image = get_the_post_thumbnail_url( $id, 'full' );
 
     if( $image ) {
-        $html .= '
+        $image_exists = true;
+        $template .= '
             <div class="container">
                 <div class="row page outstanding-image"></div><!-- .row -->
             </div><!-- .container -->
@@ -44,11 +46,8 @@ function escuelacocina_featured_image_of_page( $id ) {
         ";
         wp_add_inline_style( 'custom', $styles );      # Manejador (como fue registrada la clase)
     }
-    else {
-        
-    }
 
-    return $html;
+    return array( $image_exists, $template );
 }
 add_action( 'init', 'escuelacocina_featured_image_of_page' );
 

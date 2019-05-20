@@ -1,9 +1,18 @@
 .page {
     
-    .content {
+    .with {
+        &-image {
+            margin-top: -5rem;
+        }
+        &out-image {
+            margin-top: 0;
+        }
+    }   
+
+    &-content {
         background-color: $color__background-content;
         border: 1px solid $color__border-content;
-        margin-top: -5rem;
+        
         position: relative;
         z-index: 100;
     }    
