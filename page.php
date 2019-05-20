@@ -1,18 +1,16 @@
 <?php get_header(); ?>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-12 outstanding-image outstanding-image-us"></div>
-        </div><!-- .row -->
-    </div><!-- .container -->
+<?php # Open Loop WP 
+    while( have_posts() ): the_post();
+?>
+
+    <?php echo escuelacocina_featured_image_of_page( get_the_ID() ); ?>
 
     <main class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 px-5 py-3 content content-us">
-                <h1 class="text-center my-5 separator">Nosotros</h1>
-                <p>Ipsa molestiae sit tempora nemo ratione rerum ab, iste minima qui velit dicta, quaerat adipisci obcaecati laborum! Tempora explicabo id doloremque ad!</p>
-                <p>Iusto, assumenda neque. Sit aperiam neque doloribus eveniet deleniti consequuntur, ullam in ea suscipit nesciunt, quidem assumenda placeat corrupti labore, autem laudantium.</p>
-                <p>Aperiam, dicta. Nulla ullam architecto, eligendi expedita aperiam iure corrupti quasi id pariatur voluptatum libero dolores iusto voluptatibus, reiciendis odio repudiandae accusamus.</p>
+                <h1 class="text-center my-5 separator"><?php the_title(); ?></h1>
+                <?php the_content(); ?>
             </div><!-- .col-8 -->
         </div><!-- .row -->
 
@@ -37,5 +35,9 @@
             </div>
         </section>
     </main><!-- .container -->    
+
+<?php # Close Loop WP 
+    endwhile;
+?>    
 
 <?php get_footer(); ?>

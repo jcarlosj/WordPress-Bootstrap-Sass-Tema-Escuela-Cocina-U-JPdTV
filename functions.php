@@ -17,17 +17,55 @@ function escuelacocina_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'escuelacocina_scripts' );
 
+/** Define  */
+function escuelacocina_featured_image_of_page( $id ) {
+    
+    $html = '';
+    $image = get_the_post_thumbnail_url( $id, 'full' );
+
+    if( $image ) {
+        $html .= '
+            <div class="container">
+                <div class="row page outstanding-image"></div><!-- .row -->
+            </div><!-- .container -->
+        ';
+
+        # Registra hoja de estilos "virtual" linealmente
+        wp_register_style( 'custom', false );       # false: Registra una clase que no va a existir como archivo (temporal).
+        wp_enqueue_style( 'custom' );
+
+        # Estilos que se aplicarán al template para desplegar imagen destacada
+        $styles = "
+            .page .outstanding-image {
+                background-image: url( {$image} );
+                background-size: cover;
+                height: 24rem;
+            }
+        ";
+        wp_add_inline_style( 'custom', $styles );      # Manejador (como fue registrada la clase)
+    }
+    else {
+        
+    }
+
+    return $html;
+}
+add_action( 'init', 'escuelacocina_featured_image_of_page' );
+
 /** Crea las zonas de ubicación de menú disponibles para el tema. 
  * 
- *  Define la ubicación llamada:
- *   - main_menu
+ *  1. Define la ubicación llamada:
+ *     - main_menu
 */
-function escuelacocina_menu_areas() {
+function escuelacocina_setup_theme() {
+    # Agrega soporte imagen destacada a los post tipo página
+    add_theme_support( 'post-thumbnails' );
+    # Regitra menú
     register_nav_menus( array(
         'main_menu' => esc_html__( 'Menú Principal', 'escuelacocina' )
     ) );
 }
-add_action( 'after_setup_theme', 'escuelacocina_menu_areas' );
+add_action( 'after_setup_theme', 'escuelacocina_setup_theme' );
 
 /** Modifica atributos de items de lista de menu 
  * 
