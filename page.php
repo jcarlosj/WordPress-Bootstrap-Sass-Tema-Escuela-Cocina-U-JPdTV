@@ -7,15 +7,15 @@
     <?php #
         $page_image = escuelacocina_featured_image_of_page( get_the_ID() ); 
         /** 
-         * $page_image[ 0 ] > true/false indicando si existe o no una imagen asociada a la página
-         * $page_image[ 1 ] > Contiene plantilla de despliege de imagen (siempre que esta última exista)
+         * $page_image[ 'exists' ] > true/false indicando si existe o no una imagen asociada a la página
+         * $page_image[ 'image' ] > Contiene plantilla de despliege de imagen (siempre que esta última exista)
         */
-        echo $page_image[ 1 ];
+        echo $page_image[ 'image' ];
     ?>
 
     <main class="container">
         <div class="row justify-content-center">
-            <div class="col-12 px-5 py-3 page-content <?php echo $page_image[ 0 ] ? 'col-md-8 with-image' : 'col-md-12 without-image'; ?>">
+            <div class="col-12 px-5 py-3 page-content <?php echo $page_image[ 'exists' ] ? 'col-md-8 with-image' : 'col-md-12 without-image'; ?>">
                 <h1 class="text-center my-5 separator"><?php the_title(); ?></h1>
                 <?php the_content(); ?>
             </div><!-- .col-8 -->

@@ -47,7 +47,10 @@ function escuelacocina_featured_image_of_page( $id ) {
         wp_add_inline_style( 'custom', $styles );      # Manejador (como fue registrada la clase)
     }
 
-    return array( $image_exists, $template );
+    return array(  
+        'exists' => $image_exists, 
+        'image'  => $template
+    );
 }
 add_action( 'init', 'escuelacocina_featured_image_of_page' );
 

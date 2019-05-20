@@ -4,7 +4,6 @@
     while( have_posts() ): the_post();
 ?>
 
-<div class="page page-index">
     <main>
 
         <section class="container-fluid us">
@@ -77,7 +76,7 @@
                                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                 <h5 class="card-title">Dis gravida ornarec justo.</h5>
                                 <p class="card--subtitle">Nam justo luctus gravida eu, commodo fringilla sem enim hac.</p>
-    
+
                                 <p class="card-text">Vulputate quam hac est porttitor placerat per posuere praesent, tristique magna pulvinar dui condimentum vitae quisque nostra, velit et hendrerit gravida tellus.</p>
                                 <a href="./clase.html" class="btn btn-primary d-block d-md-inline">Más información</a>
                                 
@@ -97,7 +96,7 @@
                                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                 <h5 class="card-title">Taciti lobortis metus</h5>
                                 <p class="card--subtitle">Auctor conubia imperdiet aenean.</p>
-    
+
                                 <p class="card-text">Faucibus rhoncus lectus eget hendrerit cubilia mi est, placerat varius odio risus tincidunt class.</p>
                                 <a href="./clase.html" class="btn btn-primary d-block d-md-inline">Más información</a>
                                 
@@ -117,7 +116,7 @@
                                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                 <h5 class="card-title">Senectus scelerisque</h5>
                                 <p class="card--subtitle">Eleifend curae vivamus.</p>
-    
+
                                 <p class="card-text">Qiquam nam consequat nulla pulvinar placerat, eros non ullamcorper ridiculus elementum euismod morbi.</p>
                                 <a href="./clase.html" class="btn btn-primary d-block d-md-inline">Más información</a>
                                 
@@ -137,7 +136,7 @@
                                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                 <h5 class="card-title">At nibh congue.</h5>
                                 <p class="card--subtitle">Tincidunt ad interdum mauris suscipit diam dictum.</p>
-    
+
                                 <p class="card-text">Torquent luctus hac lacus malesuada euismod nam porta dignissim sagittis vivamus fringilla.</p>
                                 <a href="./clase.html" class="btn btn-primary d-block d-md-inline">Más información</a>
                                 
@@ -157,7 +156,7 @@
                                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                 <h5 class="card-title">Turpis sagittis ornare leo accumsan.</h5>
                                 <p class="card--subtitle">Ornare maecenas erat scelerisque.</p>
-    
+
                                 <p class="card-text">Eros aliquam at mauris a pharetra luctus urna est hendrerit sociis, ridiculus facilisis nascetur mi pretium turpis libero morbi maecenas.</p>
                                 <a href="./clase.html" class="btn btn-primary d-block d-md-inline">Más información</a>
                                 
@@ -177,7 +176,7 @@
                                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                 <h5 class="card-title">Magnis ridiculus.</h5>
                                 <p class="card--subtitle">Aeget tempor mollis.</p>
-    
+
                                 <p class="card-text">Nascetur cursus quis fermentum himenaeos integer suspendisse, eu vulputate massa.</p>
                                 <a href="./clase.html" class="btn btn-primary d-block d-md-inline">Más información</a>
                                 
@@ -193,7 +192,7 @@
             </div><!-- container -->
 
         </section><!-- container-fluid .lessons -->
-    
+
         <section class="container-fluid be-a-chef" style="background-image: url( '<?php echo get_post_meta( get_the_ID(), 'ec_section_be_a_chef_imagen_1', true ); ?>' );">
             <div class="container">
                 <div class="row justify-content-center align-content-center">
@@ -207,15 +206,6 @@
         </section>
 
     </main>
-</div><!-- .page .page-index -->
-
-<!--pre>
-    <code>
-        <?php # To Debug
-            #echo var_export( get_post_custom( get_the_ID(), true ) ); 
-        ?>
-    </code>
-</pre-->
 
 <?php # Close Loop WP 
     endwhile;
